@@ -22,8 +22,7 @@ public interface IUsuarioDao {
 
         // sobrecarga
          boolean excluirUsuario(int id);
-
-/////
+// **
          Usuario Autenticar(String login, String senha);
 
 }
