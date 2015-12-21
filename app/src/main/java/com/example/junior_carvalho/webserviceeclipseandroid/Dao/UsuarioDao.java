@@ -42,6 +42,7 @@ public class UsuarioDao extends ServicosBase implements IUsuarioDao {
 //    private static final String BUSCAR_TODOS_USUARIOS = "buscarTodosUsuairos";
 //    private static final String BUSCAR_POR_ID = "buscaUsuarioPorId";
 //    //
+    //
 
     public boolean inserirUsuario(Usuario usuario) {
 
