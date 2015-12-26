@@ -87,7 +87,7 @@ public class UsuarioDao extends ServicosBase implements IUsuarioDao {
     }
 
     //
-    public boolean atualizarUsuario(Usuario usuario) {
+    public boolean atualizarUsuario(Usuario      usuario) {
 
         SoapObject atualizarUsuario = new SoapObject(NAMESPACE, ATUALIZAR);
 

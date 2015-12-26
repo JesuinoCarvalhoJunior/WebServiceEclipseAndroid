@@ -1,9 +1,6 @@
 package com.example.junior_carvalho.webserviceeclipseandroid.Dao.Servicos;
 
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.StringTokenizer;
+
 
 
 /**
@@ -11,7 +8,7 @@ import java.util.StringTokenizer;
  */
 public class ServicosBase {
 
-    public final String URL = "http://192.168.0.3:8080/WebServiceEclipseAndroid/services/UsuarioDao?wsdl";
+    public static final String URL = "http://192.168.0.3:8080/WebServiceEclipseAndroid/services/UsuarioDao?wsdl";
     //    public static final String NAMESPACE = "http://android.webservice.com.br";
     public static final String NAMESPACE = "http://Dao.android.webservice.com.br";
 
