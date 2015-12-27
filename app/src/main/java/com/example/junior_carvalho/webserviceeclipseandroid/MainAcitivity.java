@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.provider.SyncStateContract;
@@ -15,18 +16,23 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.junior_carvalho.webserviceeclipseandroid.Dao.UsuarioDao;
 import com.example.junior_carvalho.webserviceeclipseandroid.Dominio.Usuario;
 import com.example.junior_carvalho.webserviceeclipseandroid.Helpers.MensagemHelper;
 
+import org.w3c.dom.Text;
+
+
 public class MainAcitivity extends AppCompatActivity {
 
     private EditText edtUser;
     private EditText edtPassword;
     private Resources resources;
-    private ProgressDialog dialogo = null;
+//    private ProgressDialog dialogo = null;
+    private TextView versao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +52,7 @@ public class MainAcitivity extends AppCompatActivity {
                         // Toast.makeText(this, "Autenticado com sucesso!", Toast.LENGTH_LONG).show();
                         Toast.makeText(MainAcitivity.this, resources.getString(R.string.login_auth_ok), Toast.LENGTH_SHORT).show();
 
-                       ProgressDialogo("Aguarde", "Processando", "Ok");
+                        ProgressDialogo("Aguarde", "Processando", "Ok");
 
                         //retorna lista inicial
                         Intent it = new Intent(MainAcitivity.this, MainActivityLogin.class);
@@ -58,6 +64,9 @@ public class MainAcitivity extends AppCompatActivity {
                     }
             }
         });
+
+       versao.setText(MensagemHelper.getVersionName(this));
+
     }
 
     private void callClearErrors(Editable s) {
@@ -65,6 +74,7 @@ public class MainAcitivity extends AppCompatActivity {
             clearErrorFields(edtUser);
         }
     }
+
 
     private boolean validateFields() {
         String login = edtUser.getText().toString().trim();
@@ -78,6 +88,7 @@ public class MainAcitivity extends AppCompatActivity {
                     edtPassword.getText().toString().trim()
             );
 
+
             if (user.getLogin().equals(edtUser.getText().toString().trim()) &&
                     (user.getSenha().equals(edtPassword.getText().toString().trim()))) {
             }
@@ -87,7 +98,8 @@ public class MainAcitivity extends AppCompatActivity {
         return (!isEmptyFields(login, senha) && hasSizeValid(login, senha));
     }
 
-    private boolean isEmptyFields(String user, String pass) {
+   // private boolean isEmptyFields(String user, String pass) {
+    public boolean isEmptyFields(String user, String pass) {
         if (TextUtils.isEmpty(user)) {
             edtUser.requestFocus(); //seta o foco para o campo user
             //edtUser.setError(resources.getString(R.string.login_user_required));
@@ -104,7 +116,7 @@ public class MainAcitivity extends AppCompatActivity {
 
     private boolean hasSizeValid(String user, String pass) {
 
-        if (!(user.length() > 1)) {
+                if (!(user.length() > 1)) {
             edtUser.requestFocus();
             edtUser.setError(resources.getString(R.string.login_user_size_invalid));
             return false;
@@ -162,6 +174,7 @@ public class MainAcitivity extends AppCompatActivity {
         dialog = new ProgressDialog(this);
         dialog.setTitle(title);
         dialog.setMessage(message);
+
         dialog.setButton(buttonText, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
 // Use either finish() or return() to either close the activity or just the dialog

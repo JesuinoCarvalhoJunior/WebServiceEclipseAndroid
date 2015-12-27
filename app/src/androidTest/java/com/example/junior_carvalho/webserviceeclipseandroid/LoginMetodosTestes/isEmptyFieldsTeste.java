@@ -2,6 +2,7 @@ package com.example.junior_carvalho.webserviceeclipseandroid.LoginMetodosTestes;
 
 import android.support.test.runner.AndroidJUnit4;
 
+import com.example.junior_carvalho.webserviceeclipseandroid.Dao.UsuarioDao;
 import com.example.junior_carvalho.webserviceeclipseandroid.MainAcitivity;
 
 import junit.framework.Assert;
@@ -16,12 +17,12 @@ import org.junit.runner.RunWith;
 public class isEmptyFieldsTeste extends MainAcitivity{
 
 
-
-
     @Test
     public void isEmpty(){
-     boolean resultado = isEmptyFields("","");
-        Assert.assertFalse(resultado);
+
+        UsuarioDao u = new UsuarioDao()
+              boolean res =  u.buscaUsuarioPorId("a");
+            Assert.assertFalse(res);
     }
 
 

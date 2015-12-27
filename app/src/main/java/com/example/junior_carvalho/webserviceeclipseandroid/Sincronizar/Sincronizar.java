@@ -1,8 +1,5 @@
 package com.example.junior_carvalho.webserviceeclipseandroid.Sincronizar;
 
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
-
 /**
  * Created by Junior_Carvalho on 11/10/2015.
  */
