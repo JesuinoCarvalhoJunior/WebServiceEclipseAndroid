@@ -8,7 +8,8 @@ package com.example.junior_carvalho.webserviceeclipseandroid.Dao.Servicos;
  */
 public class ServicosBase {
 
-    public static final String URL = "http://192.168.0.3:8080/WebServiceEclipseAndroid/services/UsuarioDao?wsdl";
+    public static final String URL = "http://localhost:8080/WebServiceEclipseAndroid/services/UsuarioDao?wsdl";
+    //"http://192.168.0.3:8080/WebServiceEclipseAndroid/services/UsuarioDao?wsdl";
     //    public static final String NAMESPACE = "http://android.webservice.com.br";
     public static final String NAMESPACE = "http://Dao.android.webservice.com.br";
 
