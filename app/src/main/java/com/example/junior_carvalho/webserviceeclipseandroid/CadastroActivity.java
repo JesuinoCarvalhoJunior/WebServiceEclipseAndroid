@@ -56,7 +56,7 @@ public class CadastroActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(nomecad) || TextUtils.isEmpty(idadecad) ||TextUtils.isEmpty(logincad)||TextUtils.isEmpty(senhacad) )  {
                     if (nomecad.isEmpty()) {
                         edtNome.requestFocus();
-                        edtNome.setError(Html.fromHtml("<font color='#145A14'>Informe o nome</font>"));
+                        edtNome.setError(Html.fromHtml("<font color='#00FF00'>Informe o nome</font>"));
                         return;
                     } else if (idadecad.isEmpty()) {
                         edtIdade.requestFocus();
@@ -84,10 +84,10 @@ public class CadastroActivity extends AppCompatActivity {
                         );
 
                 if (resultado) {
-                    Toast.makeText(CadastroActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CadastroActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
-                    Toast.makeText(CadastroActivity.this, "Erro ao cadastrar", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CadastroActivity.this, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -97,7 +97,8 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Cadstro Activity  chama a MainActivity
-                Intent it = new Intent(CadastroActivity.this, MainActivityLogin.class);
+               Intent it = new Intent(CadastroActivity.this, MainActivityLogin.class);
+
                 startActivity(it);
             }
         });
@@ -125,11 +126,24 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 Intent it = new Intent(CadastroActivity.this, MainAcitivity.class);
+                it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                it.putExtra("Exit", true);
                 startActivity(it);
+
             }
         });
 
     }
+    @Override
+    public void onBackPressed(){
+        // Cadstro Activity  chama a MainActivity
+        Intent it = new Intent(getApplicationContext(), MainActivityLogin.class);
+        it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        it.putExtra("Exit", true);
+        startActivity(it);
+    }
+
 }
 

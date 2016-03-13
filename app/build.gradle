@@ -3,10 +3,9 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
-
     defaultConfig {
         applicationId "com.example.junior_carvalho.webserviceeclipseandroid"
-        minSdkVersion 10
+        minSdkVersion 10 //10
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -17,7 +16,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             debuggable true
-         }
+        }
+    }
+    productFlavors {
     }
 }
 
@@ -26,12 +27,10 @@ dependencies {
     compile files('libs/ksoap2-android-assembly-3.4.0-jar-with-dependencies.jar')
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.android.support:design:23.0.1'
-
     // dependencias para teste unitarios
     androidTestCompile 'com.android.support.test:runner:0.4'
     // Set this dependency to use JUnit 4 rules
     androidTestCompile 'com.android.support.test:rules:0.4'
-
 }
 
 apply plugin: 'findbugs'

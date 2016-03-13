@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">WebServiceEclipseAndroid</string>
+    <!--  <string name="app_name">WebServiceEclipseAndroid</string> -->
+
+    <string name="app_name">VSICOCI</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -15,7 +17,7 @@
     <string name="title_activity_atualizar_dados">AtualizarDadosActivity</string>
     <string name="title_activity_detalhes_">Detalhes_Activity</string>
 
-    <string name="img_content_description"/>
+    <string name="img_content_description" />
     <string name="login_user_required">Campo login obrigatório!</string>
     <string name="login_password_required">Campo senha obrigatório!</string>
     <string name="login_edt_user_hint">login</string>
@@ -42,5 +44,11 @@
     </string>
     <string name="title_activity_restrito">RestritoActivity</string>
     <string name="title_activity_pincipal">PincipalActivity</string>
+
+    <string name="action_search">Search</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_share">Compartilhar</string>
+    <string name="action_versao">Versão</string>
+
 
 </resources>

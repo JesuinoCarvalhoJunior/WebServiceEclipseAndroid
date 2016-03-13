@@ -6,15 +6,19 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.support.design.widget.Snackbar;
+import android.view.View;
+import android.widget.TextView;
 
 /**
  * Created by Junior_Carvalho on 15/10/2015.
  */
-public class MensagemHelper {
+public class MensagemHelper extends Activity {
 
 
     public ProgressDialog dialog = null;
     Context ct;
+    private TextView versaoinfo;
 
     public void ProgressDialogo(String title, String message) {
         dialog = new ProgressDialog(ct);
@@ -39,11 +43,14 @@ public class MensagemHelper {
         try {
             PackageInfo info = pm.getPackageInfo(packageName, 0);
             versionName = info.versionName;
+
         } catch (PackageManager.NameNotFoundException e) {
             versionName = "N/A";
         }
         return versionName;
     }
+
+
 
 
 }

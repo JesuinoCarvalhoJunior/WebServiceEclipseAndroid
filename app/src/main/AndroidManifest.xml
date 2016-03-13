@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.junior_carvalho.webserviceeclipseandroid" >
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.junior_carvalho.webserviceeclipseandroid"
+    android:versionCode="1"
+    android:versionName="Web Service" >
+
+    <uses-sdk android:minSdkVersion="11" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -8,10 +13,10 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
+<!--  android:icon="@mipmap/ic_launcher" -->
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/visualsicosi"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity

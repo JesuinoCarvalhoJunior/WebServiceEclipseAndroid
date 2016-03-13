@@ -7,6 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:weightSum="1"
+    android:id="@+id/drawer_layout"
     tools:context=".MainActivity">
 
 
@@ -14,26 +15,39 @@
         android:id="@+id/btnAbreTelaCadastro"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_gravity="bottom"
-        android:text="Administrar"
-        android:layout_alignRight="@+id/lstvUsuarios"
         android:layout_alignEnd="@+id/lstvUsuarios"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignRight="@+id/lstvUsuarios"
+        android:layout_gravity="bottom"
+        android:text="Administrar" />
 
     <ListView
         android:id="@+id/lstvUsuarios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scrollbars="vertical"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:layout_above="@+id/btnAbreTelaCadastro"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:background="#c4e6e7"
-        android:divider="#FFECECEC"
-        android:dividerHeight="2sp"
+        android:divider="#FF0000"
+        android:dividerHeight="1sp"
+        android:listSelector="@drawable/list_color_selector"
+        android:scrollbars="vertical"
+        android:typeface="sans"
         />
+    <!-- android:textColor="@drawable/list_item_text_selector" -->
+
+    <!-- Framelayout to display Fragments
+
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    -->
+
+
 
 </RelativeLayout>

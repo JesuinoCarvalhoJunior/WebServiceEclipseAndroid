@@ -13,13 +13,17 @@
         android:text="Nome" />
 
     <EditText
-        android:id="@+id/edtNome"
+            android:id="@+id/edtNome"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#b4c0b9"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+         android:imeOptions="actionNext"
         android:hint="digite o nome"
         android:maxLength="30"
-        android:nextFocusDown="@+id/edtIdade" />
+        android:nextFocusDown="@+id/edtIdade"
+        />
+
+
 
     <TextView
         android:id="@+id/textView"
@@ -30,14 +34,13 @@
     <EditText
         android:id="@+id/edtIdade"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#b4c0b9"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:hint="digite a idade"
         android:inputType="number"
         android:maxLength="3"
         android:nextFocusDown="@+id/btnConfirmar" />
-
+    <!-- android:background="#b4c0b9" -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,10 +51,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/edtLogin"
-        android:background="#b4c0b9"
-        android:layout_weight="0.17"
-        android:hint="digite o login" />
+        android:hint="digite o login"
+        android:singleLine="true"
+        android:imeOptions="actionNext"/>
 
+
+    <!-- android:background="#b4c0b9" -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -61,11 +66,11 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:imeOptions="actionNext"
         android:id="@+id/edtSenha"
-        android:background="#b4c0b9"
-        android:layout_weight="0.15"
         android:hint="digite a senha" />
-
+    <!-- android:background="#b4c0b9" -->
     <Button
         android:id="@+id/btnConfirmar"
         android:layout_width="395dp"

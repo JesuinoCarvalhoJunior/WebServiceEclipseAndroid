@@ -99,7 +99,7 @@ public class UsuarioDao extends ServicosBase implements IUsuarioDao {
 
         atualizarUsuario.addSoapObject(user);
 
-        // adicionar as propiedades no emvolope
+        // adicionar as propiedades no envolope
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.setOutputSoapObject(atualizarUsuario);
@@ -230,7 +230,6 @@ public class UsuarioDao extends ServicosBase implements IUsuarioDao {
         envelope.setOutputSoapObject(buscarUsuarioId);
         envelope.implicitTypes = true;
 
-
         try {
             // envia o envelope
             HttpTransportSE http = new HttpTransportSE(URL, 5000);
@@ -261,6 +260,53 @@ public class UsuarioDao extends ServicosBase implements IUsuarioDao {
     }
 
 
+    public Usuario Autenticar(String login, String senha) {
+        Usuario user = null;
+
+        String retorno = "ok";
+
+        SoapObject autenticar = new SoapObject(NAMESPACE, AUTENTICAR);
+        autenticar.addProperty("login", login);
+        autenticar.addProperty("senha", senha);
+
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+
+        envelope.setOutputSoapObject(autenticar);
+        envelope.implicitTypes = true;
+        // envia o envelope
+    //    HttpTransportSE http = new HttpTransportSE(URL, 5000);
+
+        try {
+            // envia o envelope
+            HttpTransportSE http = new HttpTransportSE(URL, 5000);
+            http.call("urn:" + AUTENTICAR, envelope);
+
+            // cast
+            SoapObject resposta = (SoapObject) envelope.getResponse();
+
+
+            user = new Usuario();
+
+            /*user.setId(Integer.parseInt(resposta.getProperty("id").toString()));
+            user.setNome(resposta.getProperty("nome").toString());
+            user.setIdade(Integer.parseInt(resposta.getProperty("idade").toString()));*/
+            user.setLogin(resposta.getProperty("login").toString());
+            user.setSenha(resposta.getProperty("senha").toString());
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            retorno = "ok";
+            return user;
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+            return user;
+        }
+        return user;
+    }
+
+/*
+
     @Override
     public Usuario Autenticar(String login, String senha) {
 
@@ -276,11 +322,11 @@ public class UsuarioDao extends ServicosBase implements IUsuarioDao {
 
         envelope.setOutputSoapObject(autenticar);
         envelope.implicitTypes = true;
-        // envia o envelope
-        HttpTransportSE http = new HttpTransportSE(URL, 5000);
+
 
         try {
-
+            // envia o envelope
+            HttpTransportSE http = new HttpTransportSE(URL, 5000);
             http.call("urn:" + AUTENTICAR, envelope);
 
             // cast
@@ -289,10 +335,11 @@ public class UsuarioDao extends ServicosBase implements IUsuarioDao {
             user = new Usuario();
 
             user.setId(Integer.parseInt(resposta.getProperty("id").toString()));
-            user.setNome(resposta.getProperty("nome").toString());
-            user.setIdade(Integer.parseInt(resposta.getProperty("idade").toString()));
+           user.setNome(resposta.getProperty("nome").toString());
+           user.setIdade(Integer.parseInt(resposta.getProperty("idade").toString()));
             user.setLogin(resposta.getProperty("login").toString());
             user.setSenha(resposta.getProperty("senha").toString());
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -303,6 +350,5 @@ public class UsuarioDao extends ServicosBase implements IUsuarioDao {
             return null;
         }
         return user;
-    }
-
+    }*/
 }

@@ -25,4 +25,6 @@ public interface IUsuarioDao {
 // **
          Usuario Autenticar(String login, String senha);
 
+   //  boolean Autenticar(String login, String senha);
+
 }
