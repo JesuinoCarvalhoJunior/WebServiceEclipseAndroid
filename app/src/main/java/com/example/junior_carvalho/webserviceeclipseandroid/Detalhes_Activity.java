@@ -13,7 +13,9 @@ import android.widget.EditText;
 import com.example.junior_carvalho.webserviceeclipseandroid.Dao.UsuarioDao;
 import com.example.junior_carvalho.webserviceeclipseandroid.Dominio.Usuario;
 
-public class Detalhes_Activity extends AppCompatActivity {
+public class Detalhes_Activity extends AppCompatActivity implements View.OnClickListener {
+
+    private Button btnVoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,9 @@ public class Detalhes_Activity extends AppCompatActivity {
         final EditText edtCodDetalhe = (EditText) findViewById(R.id.edtCodDetalhe);
         final EditText edtNomeDetalhe = (EditText) findViewById(R.id.edtNomeDetalhe);
         final EditText edtIdadeDetalhe = (EditText) findViewById(R.id.edtIdadeDetalhe);
+
+        btnVoltar = (Button) findViewById(R.id.btnVoltar);
+        btnVoltar.setOnClickListener(this);
 
         edtCodDetalhe.setInputType(InputType.TYPE_NULL);
         edtNomeDetalhe.setInputType(InputType.TYPE_NULL);
@@ -42,23 +47,38 @@ public class Detalhes_Activity extends AppCompatActivity {
         edtIdadeDetalhe.setText(Integer.toString(user.getIdade()));
 
 
-        Button btnVoltar = (Button) findViewById(R.id.btnVoltar);
 
 
 
+
+/*
         // click botao
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // MainActivity chama a Cadstro Activity
-                Intent it = new Intent(Detalhes_Activity.this, MainActivityLogin.class);
-                startActivity(it);
+             //   Intent it = new Intent(Detalhes_Activity.this, MainActivityLogin.class);
+             //   startActivity(it);
+                finish();
             }
         });
-
+ */
     }
 
     @Override
+    public void onClick(View v) {
+        // click botao
+        if (v.getId() == R.id.btnVoltar) {
+
+          // MainActivity chama a Cadstro Activity
+             Intent it = new Intent(Detalhes_Activity.this, MainActivityLogin.class);
+             startActivity(it);
+            finish();
+        }
+    }
+
+
+            @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_detalhes_, menu);

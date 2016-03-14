@@ -23,6 +23,7 @@ import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -30,8 +31,6 @@ import android.widget.SearchView;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
 
 
 import com.example.junior_carvalho.webserviceeclipseandroid.Dao.UsuarioDao;
@@ -55,15 +54,13 @@ public class MainAcitivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-     //   Snackbar snackbar;
+        //   Snackbar snackbar;
 
         //Initializing snackbar using Snacbar.make() method
-     //   snackbar = Snackbar.make(coordinatorLayout,"Simple Snackbar",Snackbar.LENGTH_LONG);
+        //   snackbar = Snackbar.make(coordinatorLayout,"Simple Snackbar",Snackbar.LENGTH_LONG);
 
         //Displaying the snackbar using the show method()
-   //     snackbar.show();
-
-
+        //     snackbar.show();
 
         TextView versao = (TextView) findViewById(R.id.versao);
 
@@ -90,14 +87,14 @@ public class MainAcitivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (v.getId() == R.id.login_btn_enter)
-             //       Snackbar.make(ln, "Olá", Snackbar.LENGTH_SHORT).show();
+                    //       Snackbar.make(ln, "Olá", Snackbar.LENGTH_SHORT).show();
                     if (validateFields()) {
 
-                //        Snackbar.make(ln, "Olá", Snackbar.LENGTH_SHORT).show();
+                        //        Snackbar.make(ln, "Olá", Snackbar.LENGTH_SHORT).show();
                         // Toast.makeText(this, "Autenticado com sucesso!", Toast.LENGTH_LONG).show();
                         Toast.makeText(MainAcitivity.this, resources.getString(R.string.login_auth_ok), Toast.LENGTH_SHORT).show();
 
-                        ProgressDialogo("Aguarde", "Processando", "Ok");
+                        ProgressDialogo("Aguarde", "Processando....", "Ok");
 
                         //   Progressiva();
                         //retorna lista inicial
@@ -115,7 +112,7 @@ public class MainAcitivity extends AppCompatActivity {
 
     private void callClearErrors(Editable s) {
         if (!s.toString().isEmpty()) {
-            clearErrorFields(edtUser);
+          MensagemHelper.clearErrorFields(edtUser);
         }
     }
 
@@ -165,7 +162,6 @@ public class MainAcitivity extends AppCompatActivity {
             //edtPassword.setError(resources.getString(R.string.login_password_required));
             edtPassword.setError(Html.fromHtml("<font color='#00FF00'>informe a senha</font>"));
             return true;
-
         }
         return false;
     }
@@ -189,11 +185,11 @@ public class MainAcitivity extends AppCompatActivity {
      *
      * @param editTexts lista de campos do tipo EditText
      */
-    private void clearErrorFields(EditText... editTexts) {
+/*    private void clearErrorFields(EditText... editTexts) {
         for (EditText editText : editTexts) {
             editText.setError(null);
         }
-    }
+    }*/
 
 
     private void initViews() {
@@ -235,7 +231,7 @@ public class MainAcitivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
 // Use either finish() or return() to either close the activity or just the dialog
                 dialog.dismiss();
-              //  return;
+                //  return;
             }
         });
         dialog.show();
@@ -293,22 +289,23 @@ public class MainAcitivity extends AppCompatActivity {
 
     // pequisa
     private SearchView.OnQueryTextListener onSearch() {
-        //  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-        return new SearchView.OnQueryTextListener() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            return new SearchView.OnQueryTextListener() {
 
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                toast("Buscar o texto: " + query);
-                return false;
-            }
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    toast("Buscar o texto: " + query);
+                    return false;
+                }
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                // novo texto
-                return false;
-            }
-        };
-        //}
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    // novo texto
+                    return false;
+                }
+            };
+        }
+        return null;
     }
 
     private void toast(String msg) {
@@ -349,8 +346,9 @@ public class MainAcitivity extends AppCompatActivity {
         }
 
     }
-    public void exibirMensagemRodape(View v){
-       // ab.make(ln, "Olá", Snackbar.LENGTH_SHORT).show();
+
+    public void exibirMensagemRodape(View v) {
+        // ab.make(ln, "Olá", Snackbar.LENGTH_SHORT).show();
     }
 
 

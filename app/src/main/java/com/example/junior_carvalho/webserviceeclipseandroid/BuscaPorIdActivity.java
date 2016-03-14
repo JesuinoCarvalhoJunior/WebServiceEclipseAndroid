@@ -149,7 +149,6 @@ public class BuscaPorIdActivity extends AppCompatActivity implements Runnable, V
                 if (TextUtils.isEmpty(codigo)) {
                     edtCodigoId.setError(Html.fromHtml("<font color='#145A14'>Informe o código</font>"));
                     //edtCodigoId.requestFocus();
-                    //return;
                 }
             }
         } catch (Exception e) {

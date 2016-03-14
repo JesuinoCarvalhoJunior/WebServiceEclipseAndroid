@@ -105,11 +105,13 @@ public class MainActivityLogin extends AppCompatActivity {
 
                 long codigo = user.getId();
 
-                Intent it = new Intent(getBaseContext(), Detalhes_Activity.class);
+                //Intent it = new Intent(getBaseContext(), Detalhes_Activity.class);
+                Intent it = new Intent(MainActivityLogin.this, Detalhes_Activity.class);
                 //     it.putExtra("idCliente", id);
                 it.putExtra("Codigo", codigo);
                 startActivityForResult(it, 1);
                 startActivity(it);
+                finish();
 
             }
         });
